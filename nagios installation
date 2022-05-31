@@ -1,0 +1,49 @@
+ yum update
+    2  yum install httpd php -y
+    3  yum install gcc glibc glibc-common -y
+    4  yum install gd gd-devel -y
+    5  useradd -m nagios
+    6  passwd nagios
+    7  groupadd nagioscmd
+    8  usermod -a -G nagioscmd nagios
+    9  usermod -a -G nagioscmd apache
+   10  mkdir ~/downloads
+   11  cd downloads/
+   12  ls
+   13  wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.3.4.tar.gz
+   14  wget https://nagios-plugins.org/download/nagios-plugins-2.3.3.tar.gz
+   15  tar -xvfz nagios-4.3.4.tar.gz
+   16  tar -zxvf nagios-4.3.4.tar.gz
+   17  ll
+   18  cd nagios-4.3.4/
+   19  ls
+   20  ./configure --with-command-group=nagioscmd
+   21  makeall
+   22  make all
+   23  manke install
+   24  make install
+   25  make install-init
+   26  make install-config
+   27  make install-commandmode
+   28  make install-webconf
+   29  htpasswd -c
+   30  service httpd restart
+   31  cd
+   32  cd
+   33  ls
+   34  cd downloads/
+   35  ls
+   36  tar -zxvf nagios-plugins-2.3.3.tar.gz
+   37  ls
+   38  cd nagios-plugins-2.3.3/
+ls
+   40  ./config --with-nagios-user==nagios --with-nagios-group=nagios
+   41  ./configure --with-nagios-user==nagios --with-nagios-group=nagios
+   42  make
+   43  make install
+   44  chkconfig --add nagios
+   45  chkconfig nagios on
+   46  cd /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+   47  service nagios start
+   48  service httpd start
+   49  service httpd restart
